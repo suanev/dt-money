@@ -26,7 +26,7 @@ const Summary = () => {
 
       <SummaryCard
         title="Total"
-        variantBackground={summary.total > 0 ? "income" : "outcome"}
+        variantBackgroundColor={summary.total > 0 ? "income" : "outcome"}
         amount={formatAmount(summary.total)}
         icon={CurrencyDollar}
       />

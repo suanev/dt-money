@@ -6,7 +6,6 @@ import * as z from "zod";
 
 import { TransactionsContext } from "../../../../contexts/TransactionsContext";
 import { SearchButton, SearchFormContainer } from "./styles";
-import { memo } from "react";
 
 /**
  * Por que um componente renderiza?
