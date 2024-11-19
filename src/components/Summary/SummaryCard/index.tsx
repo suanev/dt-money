@@ -3,16 +3,15 @@ import { SummaryCardContainer } from "./styles";
 interface SummaryCardProps {
   title: string;
   amount: string;
-  variant?: "green" | "red";
   icon: React.ElementType;
-  variantBackground?: "income" | "outcome";
+  variantBackgroundColor?: "income" | "outcome";
   variantIconColor?: "income" | "outcome";
 }
 
 const SummaryCard = ({
   title,
   amount,
-  variantBackground,
+  variantBackgroundColor,
   variantIconColor,
   icon,
 }: SummaryCardProps) => {
@@ -20,7 +19,7 @@ const SummaryCard = ({
 
   return (
     <SummaryCardContainer
-      variantBackground={variantBackground}
+      variantBackgroundColor={variantBackgroundColor}
       variantIconColor={variantIconColor}
     >
       <header>

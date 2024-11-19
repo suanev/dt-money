@@ -1,17 +1,20 @@
 import styled from "styled-components";
 
 interface SummaryCardContainerProps {
-  variantBackground?: "income" | "outcome";
+  variantBackgroundColor?: "income" | "outcome";
   variantIconColor?: "income" | "outcome";
 }
 
-export const SummaryCardContainer = styled.div<SummaryCardContainerProps>`
+export const SummaryCardContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) =>
+    !["variantBackgroundColor", "variantIconColor"].includes(prop),
+})<SummaryCardContainerProps>`
   padding: 2rem;
   border-radius: 6px;
-  background: ${({ theme, variantBackground }) =>
-    variantBackground === "income"
+  background: ${({ theme, variantBackgroundColor }) =>
+    variantBackgroundColor === "income"
       ? theme.colors["green-700"]
-      : variantBackground === "outcome"
+      : variantBackgroundColor === "outcome"
       ? theme.colors["red-700"]
       : theme.colors["gray-600"]};
 

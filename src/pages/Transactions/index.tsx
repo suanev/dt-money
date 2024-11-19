@@ -1,5 +1,9 @@
+import { useContextSelector } from "use-context-selector";
+
 import Header from "../../components/Header";
 import Summary from "../../components/Summary";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
+import { formatAmount, formatDate } from "../../utils/formatters";
 import SearchForm from "./components/SearchForm";
 import {
   PriceHighlight,
@@ -8,6 +12,11 @@ import {
 } from "./styles";
 
 const Transactions = () => {
+  const transactions = useContextSelector(
+    TransactionsContext,
+    (context) => context.transactions
+  );
+
   return (
     <div>
       <Header />
@@ -18,30 +27,19 @@ const Transactions = () => {
 
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td width="50%">Desenvolvimento de site</td>
-              <td>
-                <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
-              </td>
-              <td>Desenvolvimento</td>
-              <td>13/11/2024</td>
-            </tr>
-            <tr>
-              <td width="50%">Aluguel do apartamento</td>
-              <td>
-                <PriceHighlight variant="outcome">R$ 1.200,00</PriceHighlight>
-              </td>
-              <td>Casa</td>
-              <td>13/11/2024</td>
-            </tr>
-            <tr>
-              <td width="50%">Conta de luz</td>
-              <td>
-                <PriceHighlight variant="outcome">R$ 100,00</PriceHighlight>
-              </td>
-              <td>Casa</td>
-              <td>13/11/2024</td>
-            </tr>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id}>
+                <td width="50%">{transaction.description}</td>
+                <td>
+                  <PriceHighlight variant={transaction.type}>
+                    {transaction.type === "income" ? " " : " - "}
+                    {formatAmount(transaction.amount)}
+                  </PriceHighlight>
+                </td>
+                <td>{transaction.category}</td>
+                <td>{formatDate(transaction.createdAt)}</td>
+              </tr>
+            ))}
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>

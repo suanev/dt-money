@@ -1,0 +1,60 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "description": "Salário",
+      "category": "Salário",
+      "amount": 10000,
+      "type": "income",
+      "createdAt": "2024-11-18T10:00:03.000Z"
+    },
+    {
+      "id": "2",
+      "description": "Aluguel",
+      "category": "Aluguel",
+      "amount": 1000,
+      "type": "outcome",
+      "createdAt": "2024-11-18T10:00:10.000Z"
+    },
+    {
+      "id": "3",
+      "description": "Freelance",
+      "category": "Vendas",
+      "amount": 1000,
+      "type": "income",
+      "createdAt": "2024-11-18T12:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "description": "Conta de luz",
+      "category": "Contas",
+      "amount": 63000,
+      "type": "outcome",
+      "createdAt": "2024-11-18T11:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "description": "Conta de água",
+      "category": "Contas",
+      "amount": 140,
+      "type": "outcome",
+      "createdAt": "2024-11-18T14:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "description": "Conta de internet",
+      "category": "Contas",
+      "amount": 200,
+      "type": "outcome",
+      "createdAt": "2024-11-18T02:00:00.000Z"
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "amount": 12000,
+      "category": "Vendas",
+      "type": "income",
+      "createdAt": "2024-11-19T10:01:20.237Z",
+      "id": "Qg8drhs"
+    }
+  ]
+}

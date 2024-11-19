@@ -3,7 +3,7 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
 import { styled } from "styled-components";
 
 interface TransactionTypeButtonProps {
-  variant: "income" | "outcome";
+  $variant: "income" | "outcome"; // Prefixamos a prop com "$"
 }
 
 export const Overlay = styled(Dialog.Overlay)`
@@ -60,6 +60,16 @@ export const Content = styled(Dialog.Content)`
 
       color: ${({ theme }) => theme.colors.white};
       background: ${({ theme }) => theme.colors["green-500"]};
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
+        transition: background-color 0.2s;
+        background: ${({ theme }) => theme.colors["green-700"]};
+      }
     }
   }
 `;
@@ -107,8 +117,8 @@ export const TransactionTypeButton = styled(
   background: ${({ theme }) => theme.colors["gray-700"]};
 
   svg {
-    color: ${({ theme, variant }) =>
-      variant === "income"
+    color: ${({ theme, $variant }) =>
+      $variant === "income"
         ? theme.colors["green-300"]
         : theme.colors["red-300"]};
   }
@@ -128,8 +138,8 @@ export const TransactionTypeButton = styled(
     transition: background-color 0.2s, color 0.2s;
 
     color: ${({ theme }) => theme.colors.white};
-    background: ${({ theme, variant }) =>
-      variant === "income"
+    background: ${({ theme, $variant }) =>
+      $variant === "income"
         ? theme.colors["green-500"]
         : theme.colors["red-500"]};
   }
